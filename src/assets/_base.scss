@@ -1,3 +1,6 @@
+@import "./_vars.scss";
+@import "./_font.scss";
+
 *,
 *::before,
 *::after {
@@ -9,7 +12,14 @@
 
 body {
   min-height: 100vh;
+  font-family: 'Monserrat', Arial, sans-serif;
+  color: $title-text-color;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  height: 100vh;
+  background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
 }

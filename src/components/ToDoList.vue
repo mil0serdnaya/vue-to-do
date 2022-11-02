@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <article></article>
+  <article class="to-do-list"></article>
 </template>
 
 <style lang="scss">

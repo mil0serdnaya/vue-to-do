@@ -1,17 +1,15 @@
 <script setup>
-import AppHeader from "./components/AppHeader.vue";
+import ToDoListHeader from "./components/ToDoListHeader.vue";
 import ToDoList from "./components/ToDoList.vue";
 </script>
 
 <template>
-  <main>
-    <section>
-      <AppHeader/>
-      <ToDoList/>
-    </section>
-  </main>
+  <section class="to-do-list-app">
+    <ToDoListHeader/>
+    <ToDoList/>
+  </section>
 </template>
 
 <style lang="scss">
-@import "./assets/_app.scss";
+@import "./assets/scss/components/_to-do-list-app.scss";
 </style>

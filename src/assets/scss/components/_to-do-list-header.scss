@@ -1,0 +1,28 @@
+@import "../../_vars.scss";
+
+.to-do-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px 20px 30px;
+
+  &__heading {
+    font-weight: 700;
+    font-size: 28px;
+  }
+
+  &__btn {
+    text-transform: uppercase;
+    color: $title-text-color;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color: $main-orange;
+    border: none;
+    border-radius: 7px;
+    
+    &:hover {
+      background-color: $hover-orange;
+    }
+  }
+}
