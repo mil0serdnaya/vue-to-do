@@ -10,6 +10,11 @@
   font-weight: normal;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 body {
   min-height: 100vh;
   font-family: 'Monserrat', Arial, sans-serif;
@@ -20,6 +25,8 @@ body {
 }
 
 #app {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+  padding-top: 162px;
   background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
 }

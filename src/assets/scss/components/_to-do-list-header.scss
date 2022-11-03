@@ -1,10 +1,11 @@
 @import "../../_vars.scss";
 
 .to-do-list-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 40px 20px 30px;
+  padding: 30px 30px 20px 30px;
 
   &__heading {
     font-weight: 700;
@@ -20,9 +21,37 @@
     background-color: $main-orange;
     border: none;
     border-radius: 7px;
-    
+    transition: all .3s;
+    cursor: pointer;
+
     &:hover {
       background-color: $hover-orange;
     }
   }
+
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: -15px;
+  //   width: 395px;
+  //   left: 0;
+  //   height: 68px;
+  //   background: linear-gradient(180deg, #31394D 0%, #091739 100%);
+  //   border-radius: 20px;
+  //   transform: rotate(-2.32deg);
+  //   z-index: -1;
+  // }
+
+
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: -25px;
+  //   width: 342px;
+  //   left: 0;
+  //   height: 86px;
+  //   background: linear-gradient(180deg, #4F5565 0%, #000000 53.65%);
+  //   border-radius: 20px;
+  //   transform: rotate(-4.48deg);
+  // }
 }

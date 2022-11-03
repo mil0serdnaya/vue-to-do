@@ -5,8 +5,8 @@ import ToDoList from "./components/ToDoList.vue";
 
 <template>
   <section class="to-do-list-app">
-    <ToDoListHeader/>
-    <ToDoList/>
+    <ToDoListHeader />
+    <ToDoList />
   </section>
 </template>
 
