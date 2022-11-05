@@ -4,6 +4,10 @@
   display: flex;
   align-items: center;
 
+  &:last-child {
+    background: linear-gradient(180deg, rgba(37, 46, 66, 0) 0%, #252E42 67.19%);
+  }
+
   input[type="checkbox"] {
     position: absolute;
     opacity: 0;
@@ -16,6 +20,7 @@
   label {
     position: relative;
     padding-left: 35px;
+    margin-bottom: 15px;
     cursor: pointer;
 
     &:hover span {
@@ -29,8 +34,9 @@
     width: 20px;
     height: 20px;
     position: absolute;
-    top: 10px;
+    top: 50%;
     left: 0;
+    transform: translateY(-50%);
     background: $description-text-color;
     border-radius: 6px;
     cursor: pointer;
@@ -44,7 +50,7 @@
     content: '';
     position: absolute;
     left: 5px;
-    top: 19px;
+    top: 50%;
     background: white;
     width: 2px;
     height: 2px;

@@ -1,6 +1,7 @@
 <script setup>
 import ToDoListHeader from "./components/ToDoListHeader.vue";
 import ToDoList from "./components/ToDoList.vue";
+import AppFooter from "./components/AppFooter.vue";
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import ToDoList from "./components/ToDoList.vue";
     <ToDoListHeader />
     <ToDoList />
   </section>
+  <AppFooter />
 </template>
 
 <style lang="scss">
