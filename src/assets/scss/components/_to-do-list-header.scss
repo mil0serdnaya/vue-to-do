@@ -1,11 +1,11 @@
-@import "../../_vars.scss";
+@import "../common/_vars.scss";
 
 .to-do-list-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 30px 20px 30px;
+  padding: 30px 15px 20px 30px;
 
   &__heading {
     font-weight: 700;
@@ -29,18 +29,18 @@
     }
   }
 
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: -15px;
-  //   width: 395px;
-  //   left: 0;
-  //   height: 68px;
-  //   background: linear-gradient(180deg, #31394D 0%, #091739 100%);
-  //   border-radius: 20px;
-  //   transform: rotate(-2.32deg);
-  //   z-index: -1;
-  // }
+  &::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    width: 395px;
+    left: 0;
+    height: 68px;
+    background: linear-gradient(180deg, #31394D 0%, #091739 100%);
+    border-radius: 20px;
+    transform: rotate(-2.32deg);
+    z-index: -1;
+  }
 
 
   // &::after {

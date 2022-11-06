@@ -14,7 +14,8 @@ export default {
         },
         {
           id: 3,
-          title: 'laboriosam mollitia et enim quasi adipisci quia provident illum',
+          title: 'delectus aut autem',
+          subtitle: 'laboriosam mollitia et enim quasi adipisci quia provident illum'
         },
         {
           id: 4,

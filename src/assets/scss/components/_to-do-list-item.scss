@@ -1,4 +1,4 @@
-@import "../../_vars.scss";
+@import "../common/_vars.scss";
 
 .to-do-list-item {
   display: flex;
@@ -78,6 +78,7 @@
     color: $title-text-color;
     display: block;
     margin-bottom: 3px;
+    max-width: 324px;
   }
 
   &__subtitle {
@@ -86,5 +87,17 @@
     font-size: 12px;
     line-height: 14px;
     color: $description-text-color;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: linear-gradient(180deg, #252E42 9.38%, rgba(37, 46, 66, 0) 66.15%);
+      transform: rotate(90deg);
+    }
   }
 }

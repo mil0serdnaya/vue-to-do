@@ -1,8 +1,9 @@
-@import "../../_vars.scss";
+@import "../common/_vars.scss";
 
 .to-do-list {
-  padding: 0 30px;
+  padding-left: 30px;
   position: relative;
+  overflow: hidden;
 
   &:after {
     content: '';
