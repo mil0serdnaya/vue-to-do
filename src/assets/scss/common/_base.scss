@@ -27,7 +27,11 @@ body {
 #app {
   min-height: 100vh;
   height: 100%;
-  padding: 162px 0;
+  padding: 162px 15px;
   background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
   background: radial-gradient(35.13% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
+
+  @media (max-width: 768px) { 
+    padding: 100px 15px;
+  }
 }
