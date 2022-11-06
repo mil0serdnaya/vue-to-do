@@ -84,7 +84,10 @@ export default {
 <template>
   <article class="to-do-list">
     <ul class="to-do-list__items">
-      <li v-for="(toDo, index) in toDoItems" :key="index" class="to-do-list-item">
+      <li
+        v-for="(toDo, index) in toDoItems"
+        :key="index" 
+        class="to-do-list-item">
         <input type="checkbox" :id="toDo.id" />
         <label :for="toDo.id">
           <span class="to-do-list-item__title">{{ toDo.title }}</span>
