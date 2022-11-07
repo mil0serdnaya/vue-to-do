@@ -28,19 +28,22 @@ body {
   min-height: 100vh;
   height: 100%;
   padding: 162px 15px;
-  background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
-  animation: shine 2s ease-in-out infinite;
+  background: radial-gradient(farthest-corner at center, #252E42 15%, #161C2E 70%) center center/150% 150%;
+  animation: shine 3s linear infinite alternate;
 
   @media (max-width: 768px) { 
     padding: 100px 15px;
   }
-}
 
-@keyframes shine {
-  from { 
-    background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
-  }
-  to { 
-    background: radial-gradient(35.13% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
-  }
- }
+  @keyframes shine {
+    0% {
+      background-position: center;
+    }
+    50% {
+      background-position: right;
+    }
+    to {
+      background-position: left;
+    }
+   }
+}
