@@ -86,7 +86,7 @@ export default {
     <ul class="to-do-list__items">
       <li
         v-for="(toDo, index) in toDoItems"
-        :key="index" 
+        :key="index"
         class="to-do-list-item">
         <input type="checkbox" :id="toDo.id" />
         <label :for="toDo.id">

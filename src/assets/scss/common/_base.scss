@@ -28,8 +28,10 @@ body {
   min-height: 100vh;
   height: 100%;
   padding: 162px 15px;
+  z-index: 0;
   background: radial-gradient(farthest-corner at center, #252E42 15%, #161C2E 70%) center center/150% 150%;
-  animation: shine 3s linear infinite alternate;
+  animation: shine 2.5s linear infinite alternate;
+  overflow: hidden;
 
   @media (max-width: 768px) { 
     padding: 100px 15px;
