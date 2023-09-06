@@ -1,11 +1,11 @@
 <script setup>
-import ToDoListHeader from "./components/ToDoListHeader.vue";
-import ToDoList from "./components/ToDoList.vue";
-import AppFooter from "./components/AppFooter.vue";
+  import ToDoListHeader from "./components/ToDoHeader.vue";
+  import ToDoList from "./components/ToDoList.vue";
+  import AppFooter from "./components/AppFooter.vue";
 </script>
 
 <template>
-  <section class="to-do-list-app">
+  <section class="to-do-app">
     <ToDoListHeader />
     <ToDoList />
   </section>
@@ -13,5 +13,5 @@ import AppFooter from "./components/AppFooter.vue";
 </template>
 
 <style lang="scss">
-@import "./assets/scss/components/_to-do-list-app.scss";
+@import "./assets/scss/components/to-do-app.scss";
 </style>

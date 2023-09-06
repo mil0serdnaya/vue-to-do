@@ -6,5 +6,5 @@
 </template>
 
 <style lang="scss">
-@import "../assets/scss/components/_to-do-list-header.scss";
+@import "../assets/scss/components/to-do-header.scss";
 </style>

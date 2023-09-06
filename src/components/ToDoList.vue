@@ -99,6 +99,6 @@ export default {
 </template>
 
 <style lang="scss">
-@import "../assets/scss/components/_to-do-list.scss";
-@import "../assets/scss/components/_to-do-list-item.scss";
+@import "../assets/scss/components/to-do-list.scss";
+@import "../assets/scss/components/to-do-list-item.scss";
 </style>

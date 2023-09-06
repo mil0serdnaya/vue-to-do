@@ -5,5 +5,5 @@
 </template>
 
 <style lang="scss">
-@import "../assets/scss/components/_app-footer.scss";
+@import "../assets/scss/components/app-footer.scss";
 </style>
