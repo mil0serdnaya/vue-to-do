@@ -1,14 +1,20 @@
 <script setup>
   import ToDoForm from './ToDoForm.vue'
+
+  import { ref } from 'vue'
+
+  const isFormVisible = ref(false)
 </script>
 
 <template>
   <header class="to-do-header">
     <div class="to-do-header__top">
       <h1 class="to-do-header__heading">Todo list</h1>
-      <button class="to-do-header__btn" value="add">Add</button>
+      <button class="orange-btn" value="new" @click="isFormVisible = !isFormVisible">New</button>
     </div>
-    <ToDoForm />
+    <Transition name="fade">
+      <ToDoForm v-show="isFormVisible"/>
+    </Transition>
   </header>
 </template>
 
@@ -27,23 +33,6 @@
   &__heading {
     font-weight: 700;
     font-size: 28px;
-  }
-
-  &__btn {
-    text-transform: uppercase;
-    color: $title-text-color;
-    font-weight: 500;
-    font-size: 14px;
-    padding: 5px 10px;
-    background-color: $main-orange;
-    border: none;
-    border-radius: 7px;
-    transition: all .3s;
-    cursor: pointer;
-
-    &:hover {
-      background-color: $hover-orange;
-    }
   }
 }
 </style>

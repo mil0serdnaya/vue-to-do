@@ -6,6 +6,7 @@
   <div class="to-do-form">
     <input type="text" class="to-do-input" placeholder="What needs to be done?">
     <input type="text" class="to-do-input" placeholder="Additional description for your todo">
+     <button class="orange-btn" value="add">Add</button>
   </div>
 </template>
 
