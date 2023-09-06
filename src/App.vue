@@ -18,7 +18,7 @@
 .to-do-app {
   width: 100%;
   max-width: 420px;
-  height: 540px;
+  min-height: 540px;
   margin: 0 auto;
   padding-right:  15px;
   background: #252E42;
@@ -42,6 +42,7 @@
     border-radius: 20px;
     transform: rotate(-2.32deg);
     z-index: -1;
+
     @media (max-width: 768px) { 
       width: 328px;
       height: 67px;
@@ -59,6 +60,7 @@
     border-radius: 20px;
     transform: rotate(-4.48deg);
     z-index: -2;
+    
     @media (max-width: 768px) { 
       width: 284px;
       height: 85px;

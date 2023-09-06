@@ -175,7 +175,7 @@ export default {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    background: $description-text-color;
+    background: $text-grey;
     border-radius: 6px;
     cursor: pointer;
   }
@@ -205,7 +205,7 @@ export default {
   input[type="checkbox"]:checked + label {
     span {
       text-decoration: line-through;
-      color: $description-text-color;
+      color: $text-grey;
     }
   }
 
@@ -224,7 +224,7 @@ export default {
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    color: $description-text-color;
+    color: $text-grey;
     position: relative;
     &::after {
       content: '';
