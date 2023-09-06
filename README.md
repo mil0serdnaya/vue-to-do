@@ -1,4 +1,4 @@
-# Vue to-do list
+# Vue 3 to-do list
 
 ## Project Setup
 
@@ -16,10 +16,4 @@ npm run dev
 
 ```sh
 npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```

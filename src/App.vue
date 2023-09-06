@@ -1,7 +1,11 @@
 <script setup>
-  import ToDoListHeader from "./components/ToDoHeader.vue";
-  import ToDoList from "./components/ToDoList.vue";
-  import AppFooter from "./components/AppFooter.vue";
+  import ToDoListHeader from './components/ToDoHeader.vue'
+  import ToDoList from './components/ToDoList.vue'
+  import AppFooter from './components/AppFooter.vue'
+
+  import { ref } from 'vue'
+
+  const toDoItems = ref([])
 </script>
 
 <template>
