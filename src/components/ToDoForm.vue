@@ -3,11 +3,12 @@
 </script>
 
 <template>
-  <div class="to-do-list-form">
-    <input type="text" class="to-do-list-input">
-    <input type="text" class="to-do-list-input">
+  <div class="to-do-form">
+    <input type="text" class="to-do-input">
+    <input type="text" class="to-do-input">
   </div>
 </template>
 
 <style lang="scss">
+@import "@/assets/styles/_vars.scss";
 </style>

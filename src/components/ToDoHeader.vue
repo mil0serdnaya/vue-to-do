@@ -1,10 +1,49 @@
+<script setup>
+  import ToDoForm from './ToDoForm.vue'
+</script>
+
 <template>
-  <header class="to-do-list-header">
-    <h1 class="to-do-list-header__heading">Todo list</h1>
-    <button class="to-do-list-header__btn" value="add">Add</button>
+  <header class="to-do-header">
+    <div class="to-do-header__top">
+      <h1 class="to-do-header__heading">Todo list</h1>
+      <button class="to-do-header__btn" value="add">Add</button>
+    </div>
+    <ToDoForm />
   </header>
 </template>
 
 <style lang="scss">
-@import "../assets/scss/components/to-do-header.scss";
+@import "@/assets/styles/_vars.scss";
+
+.to-do-header {
+  &__top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 15px 20px 30px;
+  }
+
+  &__heading {
+    font-weight: 700;
+    font-size: 28px;
+  }
+
+  &__btn {
+    text-transform: uppercase;
+    color: $title-text-color;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color: $main-orange;
+    border: none;
+    border-radius: 7px;
+    transition: all .3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-orange;
+    }
+  }
+}
 </style>
