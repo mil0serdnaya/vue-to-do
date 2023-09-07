@@ -11,8 +11,16 @@
 
 <template>
   <div class="to-do-form">
-    <input type="text" class="to-do-input" v-model="toDoTitle" placeholder="What needs to be done?">
-    <input type="text" class="to-do-input" v-model="toDoDescription" placeholder="Additional description for your todo">
+    <input type="text" 
+          class="to-do-input" 
+          v-model="toDoTitle" 
+          name="title"
+          placeholder="What needs to be done?">
+    <input type="text" 
+           class="to-do-input" 
+           v-model="toDoDescription"
+           name="description"
+           placeholder="Additional description for your todo">
     <button class="orange-btn" @click="onAddToDo" value="add">Add</button>
   </div>
 </template>
