@@ -8,19 +8,42 @@
   opacity: 0;
 }
 
-.orange-btn {
+.btn {
   text-transform: uppercase;
   color: $title-text-color;
   font-weight: 500;
   font-size: 14px;
   padding: 5px 10px;
-  background-color: $main-orange;
   border: none;
   border-radius: 7px;
   transition: all .3s;
   cursor: pointer;
+}
+
+.btn--orange {
+  @extend .btn;
+
+  background-color: $main-orange;
 
   &:hover {
     background-color: $hover-orange;
+  }
+}
+
+.btn--blue {
+  @extend .btn;
+  background-color: $blue;
+
+  &:hover {
+    background-color: darken($blue, 10%);
+  }
+}
+
+.btn--light-blue {
+  @extend .btn;
+  background-color: $light-blue;
+
+  &:hover {
+    background-color: darken($light-blue, 10%);
   }
 }

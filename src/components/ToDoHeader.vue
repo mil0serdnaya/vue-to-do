@@ -25,13 +25,13 @@
   <header class="to-do-header">
     <div class="to-do-header__top">
       <h1 class="to-do-header__heading">Todo list</h1>
-      <button class="orange-btn" value="new" @click="isFormVisible = !isFormVisible">New</button>
+      <button class="btn--orange" value="new" @click="isFormVisible = !isFormVisible">New</button>
     </div>
     <Transition name="fade">
       <div class="to-do-form" v-show="isFormVisible">
         <input type="text" class="to-do-input" v-model="toDoTitle" placeholder="What needs to be done?">
         <input type="text" class="to-do-input" v-model="toDoDescription" placeholder="Additional description for your todo">
-        <button class="orange-btn" @click="onAddToDo" value="add">Add</button>
+        <button class="btn--orange" @click="onAddToDo" value="add">Add</button>
       </div>
     </Transition>
   </header>

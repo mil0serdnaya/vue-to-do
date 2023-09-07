@@ -11,8 +11,8 @@
              :value="toDo.title" 
              name="title">
       <div class="to-do-list-item__btns">
-        <button class="orange-btn" @click="" value="edit">Edit</button>
-        <button class="orange-btn" @click="" value="save">Save</button>
+        <button class="btn--light-blue" @click="" value="edit">Edit</button>
+        <button class="btn--blue" @click="" value="save">Save</button>
       </div>
     </div>
       <div class="to-do-list-item__bottom">
