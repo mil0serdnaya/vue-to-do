@@ -1,9 +1,24 @@
 <script setup>
-  import ToDoForm from './ToDoForm.vue'
-
   import { ref } from 'vue'
 
   const isFormVisible = ref(false)
+  const emit = defineEmits(['addToDo'])
+
+  let toDoTitle = ref('')
+  let toDoDescription = ref('')
+
+  const onAddToDo = () => {
+    if (!!toDoTitle.value) {
+      let newToDo = {
+        title: toDoTitle.value.trim(),
+        description: toDoDescription.value.trim()
+      }
+      emit('addToDo', newToDo)
+      toDoTitle.value = ''
+      toDoDescription.value = ''
+      isFormVisible.value = false
+    }
+  }
 </script>
 
 <template>
@@ -13,7 +28,11 @@
       <button class="orange-btn" value="new" @click="isFormVisible = !isFormVisible">New</button>
     </div>
     <Transition name="fade">
-      <ToDoForm v-show="isFormVisible"/>
+      <div class="to-do-form" v-show="isFormVisible">
+        <input type="text" class="to-do-input" v-model="toDoTitle" placeholder="What needs to be done?">
+        <input type="text" class="to-do-input" v-model="toDoDescription" placeholder="Additional description for your todo">
+        <button class="orange-btn" @click="onAddToDo" value="add">Add</button>
+      </div>
     </Transition>
   </header>
 </template>
@@ -34,5 +53,15 @@
     font-weight: 700;
     font-size: 28px;
   }
+}
+
+.to-do-form {
+  padding: 20px;
+}
+
+.to-do-input {
+  display: block;
+  width: 100%;
+  outline: none;
 }
 </style>

@@ -2,15 +2,25 @@
   import ToDoListHeader from './components/ToDoHeader.vue'
   import ToDoList from './components/ToDoList.vue'
   import AppFooter from './components/AppFooter.vue'
+  import { ref, reactive } from 'vue'
 
-  import { ref } from 'vue'
+  const toDoList = reactive({toDoItems: []})
 
-  const toDoItems = ref([])
+  const onAddToDo = (newToDo) => {
+    let toDo = {
+      id: new Date(),
+      title: newToDo.title,
+      description: newToDo.description,
+      completed: false
+    }
+    toDoList.toDoItems.push(toDo)
+    console.log(toDoList.toDoItems[0])
+  }
 </script>
 
 <template>
   <section class="to-do-app">
-    <ToDoListHeader />
+    <ToDoListHeader v-on:add-to-do="onAddToDo"/>
     <ToDoList />
   </section>
   <AppFooter />

@@ -18,15 +18,6 @@
   position: relative;
   overflow: hidden;
 
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    background: linear-gradient(180deg, rgba(37, 46, 66, 0) 0%, #252E42 67.19%);
-  }
-
   &__items {
     padding-top: 5px;
     width: 100%;

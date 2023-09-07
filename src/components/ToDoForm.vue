@@ -1,12 +1,19 @@
 <script setup>
+  import { ref } from 'vue'
 
+  let toDoTitle = ref('')
+  let toDoDescription = ref('')
+
+  const onAddToDo = () => {
+    console.log(toDoTitle.value, toDoDescription.value)
+  }
 </script>
 
 <template>
   <div class="to-do-form">
-    <input type="text" class="to-do-input" placeholder="What needs to be done?">
-    <input type="text" class="to-do-input" placeholder="Additional description for your todo">
-     <button class="orange-btn" value="add">Add</button>
+    <input type="text" class="to-do-input" v-model="toDoTitle" placeholder="What needs to be done?">
+    <input type="text" class="to-do-input" v-model="toDoDescription" placeholder="Additional description for your todo">
+    <button class="orange-btn" @click="onAddToDo" value="add">Add</button>
   </div>
 </template>
 
