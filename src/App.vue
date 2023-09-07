@@ -14,14 +14,13 @@
       completed: false
     }
     toDoList.toDoItems.push(toDo)
-    console.log(toDoList.toDoItems[0])
   }
 </script>
 
 <template>
   <section class="to-do-app">
     <ToDoListHeader v-on:add-to-do="onAddToDo"/>
-    <ToDoList />
+    <ToDoList :to-do-list="toDoList"/>
   </section>
   <AppFooter />
 </template>

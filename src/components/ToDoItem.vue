@@ -1,13 +1,13 @@
 <script setup>
-
+  defineProps(['toDo'])
 </script>
 
 <template>
   <li class="to-do-list-item">
     <input type="checkbox" />
     <label>
-      <span class="to-do-list-item__title">title</span>
-      <span class="to-do-list-item__subtitle">subtitle</span>
+      <span class="to-do-list-item__title">{{ toDo.title }}</span>
+      <span class="to-do-list-item__subtitle">{{ toDo.description }}</span>
     </label>
   </li>
 </template>

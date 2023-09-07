@@ -1,11 +1,16 @@
 <script setup>
   import ToDoItem from './ToDoItem.vue'
+
+  defineProps(['toDoList'])
 </script>
 
 <template>
   <article class="to-do-list">
     <ul class="to-do-list__items">
-      <ToDoItem />
+      <ToDoItem v-for="toDo in toDoList.toDoItems" 
+        :key="toDo.id"
+        :toDo="toDo"
+      />
     </ul>
   </article>
 </template>
