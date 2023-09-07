@@ -38,8 +38,6 @@
 </template>
 
 <style lang="scss">
-@import "@/assets/styles/_vars.scss";
-
 .to-do-header {
   &__top {
     width: 100%;

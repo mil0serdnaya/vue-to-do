@@ -26,8 +26,6 @@
 </template>
 
 <style lang="scss">
-@import "@/assets/styles/_vars.scss";
-
 .to-do-list-item {
   display: flex;
   flex-direction: column;

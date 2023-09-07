@@ -26,8 +26,6 @@
 </template>
 
 <style lang="scss">
-@import "@/assets/styles/_base.scss";
-
 .to-do-app {
   width: 100%;
   max-width: 420px;

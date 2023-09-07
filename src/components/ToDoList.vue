@@ -16,8 +16,6 @@
 </template>
 
 <style lang="scss">
-@import "@/assets/styles/_vars.scss";
-
 .to-do-list {
   padding-left: 30px;
   position: relative;
