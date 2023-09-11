@@ -1,23 +1,30 @@
 <script setup>
   defineProps(['toDo'])
+
+  import { ref } from 'vue'
+
+  const isEditing = ref(false)
+
 </script>
 
 <template>
   <li class="to-do-list-item">
     <div class="to-do-list-item__top">
-      <span class="to-do-list-item__title">{{ toDo.title }}</span>
-      <input type="text" 
+      <span class="to-do-list-item__title" v-show="!isEditing">{{ toDo.title }}</span>
+      <input type="text"
+             v-show="isEditing"
              class="to-do-list-item__input" 
              :value="toDo.title" 
              name="title">
       <div class="to-do-list-item__btns">
-        <button class="btn--light-blue" @click="" value="edit">Edit</button>
+        <button class="btn--light-blue" @click="isEditing = !isEditing" value="edit">Edit</button>
         <button class="btn--blue" @click="" value="save">Save</button>
       </div>
     </div>
       <div class="to-do-list-item__bottom">
-        <span class="to-do-list-item__description">{{ toDo.description }}</span>
-        <input type="text" 
+        <span class="to-do-list-item__description" v-show="!isEditing">{{ toDo.description }}</span>
+        <input type="text"
+               v-show="isEditing"
                class="to-do-list-item__input" 
                :value="toDo.description" 
                name="description">
@@ -43,7 +50,7 @@
   &__description {
     display: block;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
     color: $text-grey;
   }
