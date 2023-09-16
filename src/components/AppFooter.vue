@@ -1,6 +1,6 @@
 <template>
   <footer class="app__footer">
-    <span>© 2022. Anya Miloserdnaya</span>
+    <span>© 2023. Anya Miloserdnaya</span>
   </footer>
 </template>
 

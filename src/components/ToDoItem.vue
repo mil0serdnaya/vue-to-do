@@ -1,10 +1,16 @@
 <script setup>
-  defineProps(['toDo'])
-
   import { ref } from 'vue'
 
+  defineProps(['toDo'])
+  
+  const emit = defineEmits(['editToDo'])
   const isEditing = ref(false)
+  const newTitleInput = ref(null)
+  const newDescriptionInput = ref(null)
 
+  const onSaveToDo = () => {
+    
+  }
 </script>
 
 <template>
@@ -14,7 +20,8 @@
       <input type="text"
              v-show="isEditing"
              class="to-do-list-item__input" 
-             :value="toDo.title" 
+             :value="toDo.title"
+             ref="newTitleInput"
              name="title">
       <div class="to-do-list-item__btns">
         <button class="btn--light-blue" @click="isEditing = !isEditing" value="edit">Edit</button>
@@ -27,6 +34,7 @@
                v-show="isEditing"
                class="to-do-list-item__input" 
                :value="toDo.description" 
+               ref="newDescriptionInput"
                name="description">
       </div>
   </li>

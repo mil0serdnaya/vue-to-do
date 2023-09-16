@@ -15,12 +15,18 @@
     }
     toDoList.toDoItems.push(toDo)
   }
+
+  const onEditToDo = ({id, title, description}) => {
+    let index = toDoList.toDoItems.findIndex(toDo => toDo.id === id)
+    toDoList.toDoItems[index].title = title
+    toDoList.toDoItems[index].desctiption = desctiption
+  }
 </script>
 
 <template>
   <section class="to-do-app">
     <ToDoListHeader v-on:add-to-do="onAddToDo"/>
-    <ToDoList :to-do-list="toDoList"/>
+    <ToDoList :to-do-list="toDoList" v-on:edit-to-do="onEditToDo"/>
   </section>
   <AppFooter />
 </template>
