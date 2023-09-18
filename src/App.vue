@@ -16,10 +16,11 @@
     toDoList.toDoItems.push(toDo)
   }
 
-  const onEditToDo = ({id, title, description}) => {
-    let index = toDoList.toDoItems.findIndex(toDo => toDo.id === id)
+  const onEditToDo = ({ id, title, description }) => {
+    let index = toDoList.toDoItems.findIndex(todo => todo.id === id)
     toDoList.toDoItems[index].title = title
-    toDoList.toDoItems[index].desctiption = desctiption
+    toDoList.toDoItems[index].description = description
+    console.log(toDoList.toDoItems[index].title)
   }
 </script>
 

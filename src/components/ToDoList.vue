@@ -2,6 +2,11 @@
   import ToDoItem from './ToDoItem.vue'
 
   defineProps(['toDoList'])
+
+  const emit = defineEmits(['editToDo'])
+  const onUpdateToDo = (data) => {
+    emit('editToDo', data)
+  }
 </script>
 
 <template>
@@ -10,6 +15,7 @@
       <ToDoItem v-for="toDo in toDoList.toDoItems" 
         :key="toDo.id"
         :toDo="toDo"
+        @update-to-do="onUpdateToDo"
       />
     </ul>
   </article>

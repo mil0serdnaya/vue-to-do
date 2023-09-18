@@ -3,13 +3,14 @@
 
   defineProps(['toDo'])
   
-  const emit = defineEmits(['editToDo'])
+  const emit = defineEmits(['updateToDo'])
   const isEditing = ref(false)
   const newTitleInput = ref(null)
   const newDescriptionInput = ref(null)
 
-  const onSaveToDo = () => {
-    
+  const onSaveToDo = (id, title, description) => {
+    // console.log(id, title, description)
+    emit('updateToDo', { id, title, description })
   }
 </script>
 
@@ -24,8 +25,8 @@
              ref="newTitleInput"
              name="title">
       <div class="to-do-list-item__btns">
-        <button class="btn--light-blue" @click="isEditing = !isEditing" value="edit">Edit</button>
-        <button class="btn--blue" @click="" value="save">Save</button>
+        <button class="btn--light-blue" @click="isEditing = !isEditing">Edit</button>
+        <button class="btn--blue" @click="onSaveToDo(toDo.id, newTitleInput.value, newDescriptionInput.value)">Save</button>
       </div>
     </div>
       <div class="to-do-list-item__bottom">
