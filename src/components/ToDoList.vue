@@ -4,8 +4,8 @@
   defineProps(['toDoList'])
 
   const emit = defineEmits(['editToDo'])
-  const onUpdateToDo = (data) => {
-    emit('editToDo', data)
+  const onUpdateToDo = (newData) => {
+    emit('editToDo', newData)
   }
 </script>
 

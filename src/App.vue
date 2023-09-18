@@ -20,7 +20,6 @@
     let index = toDoList.toDoItems.findIndex(todo => todo.id === id)
     toDoList.toDoItems[index].title = title
     toDoList.toDoItems[index].description = description
-    console.log(toDoList.toDoItems[index].title)
   }
 </script>
 

@@ -5,12 +5,18 @@
   
   const emit = defineEmits(['updateToDo'])
   const isEditing = ref(false)
+  const isEditBtnVisible = ref(true)
   const newTitleInput = ref(null)
   const newDescriptionInput = ref(null)
 
-  const onSaveToDo = (id, title, description) => {
-    // console.log(id, title, description)
+  const onClickEdit = () => {
+    isEditing.value = !isEditing.value
+    isEditBtnVisible.value = false
+  }
+
+  const onClickSave = (id, title, description) => {
     emit('updateToDo', { id, title, description })
+    isEditing.value = false
   }
 </script>
 
@@ -25,8 +31,8 @@
              ref="newTitleInput"
              name="title">
       <div class="to-do-list-item__btns">
-        <button class="btn--light-blue" @click="isEditing = !isEditing">Edit</button>
-        <button class="btn--blue" @click="onSaveToDo(toDo.id, newTitleInput.value, newDescriptionInput.value)">Save</button>
+        <button class="btn--light-blue" v-show="isEditBtnVisible" @click="onClickEdit">Edit</button>
+        <button class="btn--blue" v-show="isEditing" @click="onClickSave(toDo.id, newTitleInput.value, newDescriptionInput.value)">Save</button>
       </div>
     </div>
       <div class="to-do-list-item__bottom">
