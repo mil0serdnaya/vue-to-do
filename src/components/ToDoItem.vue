@@ -45,7 +45,7 @@
       <span class="to-do-list-item__title" v-show="!isEditing">{{ toDo.title }}</span>
       <input type="text"
              v-show="isEditing"
-             class="to-do-list-item__input" 
+             class="to-do-list-item__input to-do-list-item__input--title" 
              :value="toDo.title"
              ref="newTitleInput"
              name="title">
@@ -54,7 +54,7 @@
       <span class="to-do-list-item__description" v-show="!isEditing">{{ toDo.description }}</span>
       <input type="text"
               v-show="isEditing"
-              class="to-do-list-item__input" 
+              class="to-do-list-item__input to-do-list-item__input--description" 
               :value="toDo.description" 
               ref="newDescriptionInput"
               name="description">
@@ -109,6 +109,21 @@
     font-size: 14px;
     line-height: 16px;
     color: $text-grey;
+  }
+
+  &__input {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
+
+    &--title {
+      @extend .to-do-list-item__title;
+    }
+    &--description {
+      @extend .to-do-list-item__description;
+    }
   }
 
   // &:last-child {
