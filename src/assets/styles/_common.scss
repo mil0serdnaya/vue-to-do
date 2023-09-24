@@ -33,6 +33,7 @@
 .btn--blue {
   @extend .btn;
   background-color: $blue;
+  font-size: 12px;
 
   &:hover {
     background-color: darken($blue, 10%);
@@ -42,6 +43,7 @@
 .btn--light-blue {
   @extend .btn;
   background-color: $light-blue;
+  font-size: 12px;
 
   &:hover {
     background-color: darken($light-blue, 10%);

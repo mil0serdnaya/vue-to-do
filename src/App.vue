@@ -1,7 +1,6 @@
 <script setup>
   import ToDoListHeader from './components/ToDoHeader.vue'
   import ToDoList from './components/ToDoList.vue'
-  import AppFooter from './components/AppFooter.vue'
   import { ref, reactive } from 'vue'
 
   const toDoList = reactive({toDoItems: []})
@@ -16,10 +15,10 @@
     toDoList.toDoItems.push(toDo)
   }
 
-  const onEditToDo = ({ id, title, description }) => {
+  const onEditToDo = ({ id, newTitle, newDescription }) => {
     let index = toDoList.toDoItems.findIndex(todo => todo.id === id)
-    toDoList.toDoItems[index].title = title
-    toDoList.toDoItems[index].description = description
+    toDoList.toDoItems[index].title = newTitle
+    toDoList.toDoItems[index].description = newDescription
   }
 </script>
 
@@ -28,7 +27,6 @@
     <ToDoListHeader v-on:add-to-do="onAddToDo"/>
     <ToDoList :to-do-list="toDoList" v-on:edit-to-do="onEditToDo"/>
   </section>
-  <AppFooter />
 </template>
 
 <style lang="scss">

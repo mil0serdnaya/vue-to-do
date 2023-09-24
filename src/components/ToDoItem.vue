@@ -14,15 +14,20 @@
     isEditBtnVisible.value = false
   }
 
-  const onClickSave = (id, title, description) => {
-    emit('updateToDo', { id, title, description })
+  const onClickSave = (id, newTitle, newDescription) => {
+    emit('updateToDo', { id, newTitle, newDescription })
     isEditing.value = false
+    isEditBtnVisible.value = true
   }
 </script>
 
 <template>
   <li class="to-do-list-item">
-    <div class="to-do-list-item__top">
+    <div class="to-do-list-item__btns">
+      <button class="btn--light-blue" v-show="isEditBtnVisible" @click="onClickEdit">Edit</button>
+      <button class="btn--blue" v-show="isEditing" @click="onClickSave(toDo.id, newTitleInput.value, newDescriptionInput.value)">Save</button>
+    </div>
+    <div>
       <span class="to-do-list-item__title" v-show="!isEditing">{{ toDo.title }}</span>
       <input type="text"
              v-show="isEditing"
@@ -30,20 +35,16 @@
              :value="toDo.title"
              ref="newTitleInput"
              name="title">
-      <div class="to-do-list-item__btns">
-        <button class="btn--light-blue" v-show="isEditBtnVisible" @click="onClickEdit">Edit</button>
-        <button class="btn--blue" v-show="isEditing" @click="onClickSave(toDo.id, newTitleInput.value, newDescriptionInput.value)">Save</button>
-      </div>
     </div>
-      <div class="to-do-list-item__bottom">
-        <span class="to-do-list-item__description" v-show="!isEditing">{{ toDo.description }}</span>
-        <input type="text"
-               v-show="isEditing"
-               class="to-do-list-item__input" 
-               :value="toDo.description" 
-               ref="newDescriptionInput"
-               name="description">
-      </div>
+    <div>
+      <span class="to-do-list-item__description" v-show="!isEditing">{{ toDo.description }}</span>
+      <input type="text"
+              v-show="isEditing"
+              class="to-do-list-item__input" 
+              :value="toDo.description" 
+              ref="newDescriptionInput"
+              name="description">
+    </div>
   </li>
 </template>
 
@@ -51,6 +52,30 @@
 .to-do-list-item {
   display: flex;
   flex-direction: column;
+  position: relative;
+  cursor: pointer;
+
+  .btn--light-blue {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+
+  &:hover {
+    .btn--light-blue {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+  }
   
   &__title {
     font-weight: 500;
@@ -58,7 +83,7 @@
     line-height: 20px;
     color: $title-text-color;
     display: block;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
     max-width: 324px;
   }
 
@@ -66,7 +91,7 @@
     display: block;
     font-weight: 400;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 16px;
     color: $text-grey;
   }
 

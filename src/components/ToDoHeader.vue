@@ -30,7 +30,7 @@
     <Transition name="fade">
       <div class="to-do-form" v-show="isFormVisible">
         <input type="text" class="to-do-input" v-model="toDoTitle" placeholder="What needs to be done?">
-        <input type="text" class="to-do-input" v-model="toDoDescription" placeholder="Additional description for your todo">
+        <input type="text" class="to-do-input" v-model="toDoDescription" placeholder="Additional description for your todo (optional)">
         <button class="btn--orange" @click="onAddToDo" value="add">Add</button>
       </div>
     </Transition>
