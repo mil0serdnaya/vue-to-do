@@ -1,9 +1,12 @@
 <script setup>
   import { ref } from 'vue'
+  import EditIcon from './icons/EditIcon.vue'
+  import SaveIcon from './icons/SaveIcon.vue'
+  import DeleteIcon from './icons/DeleteIcon.vue'
 
   defineProps(['toDo'])
   
-  const emit = defineEmits(['updateToDo'])
+  const emit = defineEmits(['updateToDo', 'removeToDo'])
   const isEditing = ref(false)
   const isEditBtnVisible = ref(true)
   const newTitleInput = ref(null)
@@ -19,13 +22,24 @@
     isEditing.value = false
     isEditBtnVisible.value = true
   }
+
+  const onClickDelete = (id) => {
+    emit('removeToDo', id)
+  }
 </script>
 
 <template>
   <li class="to-do-list-item">
     <div class="to-do-list-item__btns">
-      <button class="btn--light-blue" v-show="isEditBtnVisible" @click="onClickEdit">Edit</button>
-      <button class="btn--blue" v-show="isEditing" @click="onClickSave(toDo.id, newTitleInput.value, newDescriptionInput.value)">Save</button>
+      <button class="to-do-list-item__btn to-do-list-item__btn--edit" v-show="isEditBtnVisible" @click="onClickEdit">
+        <EditIcon />
+      </button>
+      <button class="to-do-list-item__btn to-do-list-item__btn--delete" v-show="isEditBtnVisible" @click="onClickDelete(toDo.id)">
+        <DeleteIcon />
+      </button>
+      <button class="to-do-list-item__btn" v-show="isEditing" @click="onClickSave(toDo.id, newTitleInput.value, newDescriptionInput.value)">
+        <SaveIcon />
+      </button>
     </div>
     <div>
       <span class="to-do-list-item__title" v-show="!isEditing">{{ toDo.title }}</span>
@@ -55,14 +69,16 @@
   position: relative;
   cursor: pointer;
 
-  .btn--light-blue {
+  .to-do-list-item__btn--edit,
+  .to-do-list-item__btn--delete {
     visibility: hidden;
     opacity: 0;
-    transition: opacity .3s;
+    transition: opacity .4s;
   }
 
   &:hover {
-    .btn--light-blue {
+    .to-do-list-item__btn--edit,
+    .to-do-list-item__btn--delete {
       visibility: visible;
       opacity: 1;
     }

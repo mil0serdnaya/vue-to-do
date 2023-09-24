@@ -3,9 +3,14 @@
 
   defineProps(['toDoList'])
 
-  const emit = defineEmits(['editToDo'])
+  const emit = defineEmits(['editToDo', 'deleteToDo'])
+
   const onUpdateToDo = (newData) => {
     emit('editToDo', newData)
+  }
+
+  const onRemoveToDo = (newData) => {
+    emit('deleteToDo', newData)
   }
 </script>
 
@@ -16,6 +21,7 @@
         :key="toDo.id"
         :toDo="toDo"
         @update-to-do="onUpdateToDo"
+        @remove-to-do="onRemoveToDo"
       />
     </ul>
   </article>

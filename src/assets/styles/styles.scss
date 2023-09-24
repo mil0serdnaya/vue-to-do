@@ -16,6 +16,12 @@ ul {
   padding: 0;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 body {
   min-height: 100vh;
   font-family: 'Monserrat', Arial, sans-serif;

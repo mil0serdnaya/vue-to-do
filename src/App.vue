@@ -20,12 +20,19 @@
     toDoList.toDoItems[index].title = newTitle
     toDoList.toDoItems[index].description = newDescription
   }
+
+  const onDeleteToDo = (id) => {
+    toDoList.toDoItems = toDoList.toDoItems.filter((toDo) => toDo.id !== id)
+  }
 </script>
 
 <template>
   <section class="to-do-app">
     <ToDoListHeader v-on:add-to-do="onAddToDo"/>
-    <ToDoList :to-do-list="toDoList" v-on:edit-to-do="onEditToDo"/>
+    <ToDoList :to-do-list="toDoList" 
+              v-on:edit-to-do="onEditToDo"
+              v-on:delete-to-do="onDeleteToDo"
+    />
   </section>
 </template>
 
