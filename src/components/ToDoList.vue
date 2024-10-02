@@ -1,30 +1,19 @@
 <script setup>
-  import ToDoItem from './ToDoItem.vue'
-
-  defineProps(['toDoList'])
-
-  const emit = defineEmits(['editToDo', 'deleteToDo'])
-
-  const onUpdateToDo = (newData) => {
-    emit('editToDo', newData)
-  }
-
-  const onRemoveToDo = (newData) => {
-    emit('deleteToDo', newData)
-  }
+import ToDoItem from './ToDoItem.vue';
+defineProps(['toDoList']);
+const emit = defineEmits(['editToDo', 'deleteToDo']);
 </script>
 
 <template>
-  <article class="to-do-list">
-    <ul class="to-do-list__items">
-      <ToDoItem v-for="toDo in toDoList.toDoItems" 
-        :key="toDo.id"
-        :toDo="toDo"
-        @update-to-do="onUpdateToDo"
-        @remove-to-do="onRemoveToDo"
-      />
-    </ul>
-  </article>
+  <ul class="to-do-list">
+    <ToDoItem 
+      v-for="toDo in toDoList"
+      :key="toDo.id" 
+      :toDo="toDo"
+      @update-to-do="emit('editToDo', $event)"
+      @remove-to-do="emit('deleteToDo', $event)"
+    />
+  </ul>
 </template>
 
 <style lang="scss">
@@ -55,5 +44,4 @@
 .to-do-list__items::-webkit-scrollbar-thumb:hover {
   background: $hover-orange; 
 }
-
 </style>

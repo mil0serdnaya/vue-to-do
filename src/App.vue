@@ -1,37 +1,38 @@
 <script setup>
-  import ToDoListHeader from './components/ToDoHeader.vue'
-  import ToDoList from './components/ToDoList.vue'
-  import { ref, reactive } from 'vue'
+import ToDoListHeader from "./components/ToDoHeader.vue";
+import ToDoList from './components/ToDoList.vue';
+import { reactive } from 'vue';
 
-  const toDoList = reactive({toDoItems: []})
+const toDoList = reactive([]);
 
-  const onAddToDo = (newToDo) => {
-    let toDo = {
-      id: new Date(),
-      title: newToDo.title,
-      description: newToDo.description,
-      completed: false
-    }
-    toDoList.toDoItems.push(toDo)
+const onAddToDo = (newToDo) => {
+  toDoList.push({
+    id: Date.now(),
+    title: newToDo.title,
+    description: newToDo.description,
+    completed: false,
+  });
+};
+
+const onEditToDo = (updatedToDo) => {
+  const index = toDoList.findIndex(todo => todo.id === updatedToDo.id);
+  if (index !== -1) {
+    toDoList[index] = { ...toDoList[index], ...updatedToDo };
   }
+};
 
-  const onEditToDo = ({ id, newTitle, newDescription }) => {
-    let index = toDoList.toDoItems.findIndex(todo => todo.id === id)
-    toDoList.toDoItems[index].title = newTitle
-    toDoList.toDoItems[index].description = newDescription
-  }
-
-  const onDeleteToDo = (id) => {
-    toDoList.toDoItems = toDoList.toDoItems.filter((toDo) => toDo.id !== id)
-  }
+const onDeleteToDo = (id) => {
+  toDoList.splice(toDoList.findIndex(todo => todo.id === id), 1);
+};
 </script>
 
 <template>
   <section class="to-do-app">
-    <ToDoListHeader v-on:add-to-do="onAddToDo"/>
-    <ToDoList :to-do-list="toDoList" 
-              v-on:edit-to-do="onEditToDo"
-              v-on:delete-to-do="onDeleteToDo"
+    <ToDoListHeader @add-to-do="onAddToDo" />
+    <ToDoList 
+      :to-do-list="toDoList"
+      @edit-to-do="onEditToDo"
+      @delete-to-do="onDeleteToDo"
     />
   </section>
 </template>
@@ -48,7 +49,7 @@
   border-radius: 20px 0px 40px;
   position: relative;
 
-  @media (max-width: 768px) { 
+  @media (max-width: 768px) {
     max-width: 390px;
   }
 
@@ -70,9 +71,8 @@
       height: 67px;
     }
   }
-  
   &::after {
-    content: '';
+    content: ' ';
     position: absolute;
     top: -30px;
     width: 342px;
@@ -82,8 +82,7 @@
     border-radius: 20px;
     transform: rotate(-4.48deg);
     z-index: -2;
-    
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
       width: 284px;
       height: 85px;
     }

@@ -1,39 +1,32 @@
 <script setup>
-  import { ref } from 'vue'
+import { ref } from 'vue';
+const isFormVisible = ref(false);
+const newToDo = ref({ title: '', description: '' });
 
-  const isFormVisible = ref(false)
-  const emit = defineEmits(['addToDo'])
+const emit = defineEmits(['addToDo']);
 
-  let toDoTitle = ref('')
-  let toDoDescription = ref('')
-
-  const onAddToDo = () => {
-    if (!!toDoTitle.value) {
-      let newToDo = {
-        title: toDoTitle.value.trim(),
-        description: toDoDescription.value.trim()
-      }
-      emit('addToDo', newToDo)
-      toDoTitle.value = ''
-      toDoDescription.value = ''
-      isFormVisible.value = false
-    }
+const addNewToDo = () => {
+  if (newToDo.value.title.trim()) {
+    emit('addToDo', { ...newToDo.value });
+    newToDo.value = { title: '', description: '' };
+    isFormVisible.value = false;
   }
+};
 </script>
 
 <template>
   <header class="to-do-header">
     <div class="to-do-header__top">
-      <h1 class="to-do-header__heading">Todo list</h1>
+      <h1 class="to-do-header__heading">Todo List</h1>
       <button class="btn--orange" value="new" @click="isFormVisible = !isFormVisible">New</button>
     </div>
-    <Transition name="fade">
-      <div class="to-do-form" v-show="isFormVisible">
-        <input type="text" class="to-do-input" v-model="toDoTitle" placeholder="What needs to be done?">
-        <input type="text" class="to-do-input" v-model="toDoDescription" placeholder="Additional description for your todo (optional)">
-        <button class="btn--orange" @click="onAddToDo" value="add">Add</button>
+    <transition name="fade">
+      <div v-if="isFormVisible" class="to-do-form">
+        <input class="to-do-input" v-model="newToDo.title" type="text" placeholder="Title" />
+        <input class="to-do-input" v-model="newToDo.description" type="text" placeholder="Description (optional)" />
+        <button class="btn--orange" value="add" @click="addNewToDo">Add</button>
       </div>
-    </Transition>
+    </transition>
   </header>
 </template>
 
