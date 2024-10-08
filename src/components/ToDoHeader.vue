@@ -82,19 +82,6 @@ const resetForm = () => {
   border-color: #4CAF50;
 }
 
-/* .btn--orange {
-  background-color: #FF8469;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn--orange:hover {
-  background-color: #D95133;
-} */
-
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.3s;
 }
