@@ -1,22 +1,32 @@
 <script setup>
 import ToDoItem from './ToDoItem.vue';
-defineProps(['toDoList']);
+
+const props = defineProps({
+  toDoList: {
+    type: Array,
+    required: true
+  }
+});
+
 const emit = defineEmits(['editToDo', 'deleteToDo']);
+
+const handleEdit = (updatedToDo) => emit('editToDo', updatedToDo);
+const handleDelete = (toDoId) => emit('deleteToDo', toDoId);
 </script>
 
 <template>
   <ul class="to-do-list">
     <ToDoItem 
       v-for="toDo in toDoList"
-      :key="toDo.id" 
+      :key="toDo.id"
       :toDo="toDo"
-      @update-to-do="emit('editToDo', $event)"
-      @remove-to-do="emit('deleteToDo', $event)"
+      @updateToDo="handleEdit"
+      @removeToDo="handleDelete"
     />
   </ul>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .to-do-list {
   padding-left: 30px;
   position: relative;
@@ -29,19 +39,18 @@ const emit = defineEmits(['editToDo', 'deleteToDo']);
     overflow-y: scroll;
     position: relative;
   }
-}
 
-.to-do-list__items::-webkit-scrollbar {
-  width: 4px;
-}
+  &__items::-webkit-scrollbar {
+    width: 4px;
+  }
 
-.to-do-list__items::-webkit-scrollbar-thumb {
-  width: 4px;
-  background: $main-orange;
-  border-radius: 10px;
-}
+  &__items::-webkit-scrollbar-thumb {
+    background: $main-orange;
+    border-radius: 10px;
+  }
 
-.to-do-list__items::-webkit-scrollbar-thumb:hover {
-  background: $hover-orange; 
+  &__items::-webkit-scrollbar-thumb:hover {
+    background: $hover-orange;
+  }
 }
 </style>

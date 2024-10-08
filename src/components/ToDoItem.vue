@@ -31,8 +31,8 @@ const startEditing = () => {
 const saveChanges = () => {
   emit('updateToDo', {
     id: props.toDo.id,
-    newTitle: title.value,
-    newDescription: description.value
+    title: title.value,
+    description: description.value
   })
   stopEditing()
 }
@@ -62,7 +62,7 @@ const deleteToDo = () => {
     </div>
 
     <div>
-      <span v-if="!isEditing" class="to-do-list-item__title">{{ props.toDo.title }}</span>
+      <span v-if="!isEditing" class="to-do-list-item__title">{{ title }}</span>
       <input 
         v-if="isEditing"
         v-model="title"
@@ -72,7 +72,7 @@ const deleteToDo = () => {
     </div>
 
     <div>
-      <span v-if="!isEditing" class="to-do-list-item__description">{{ props.toDo.description }}</span>
+      <span v-if="!isEditing" class="to-do-list-item__description">{{ description }}</span>
       <input 
         v-if="isEditing"
         v-model="description"
